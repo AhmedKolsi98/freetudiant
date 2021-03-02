@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+{% endblock %}
+
+{% block body %}
+
+    <div class="tab-content" id="questiontab">
+        <div class="tab-pane fade active show" id="questiondetail" role="tabpanel" aria-labelledby="question-detail-tab">
+            <section class="space-ptb">
+                <div class="container">
+                    {{ form_start(form) }}
+                    {{ form_row(form.sujet,{ 'attr':{'placeholder':"question decription" ,'class':"form-control"}}) }}
+                    {{ form_row(form.description,{ 'attr':{'placeholder':"question description" ,'class':"form-control"}}) }}
+                    {{ form_row(form.Add,{ 'attr':{ 'class':"btn btn-primary"}}) }}
+                    {{ form_end(form) }}
+                </div>
+            </section>
+        </div>
+    </div>
+{% endblock %}

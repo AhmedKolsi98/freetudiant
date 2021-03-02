@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+
+    <div>
+        <h1 align="center">Reponse list </h1>
+        <table border="4" align="center">
+            <tr>
+
+                <td>DESCRIPTION</td>
+
+            </tr>
+            {% for re in reponse %}
+                <tr>
+                    <td> {{ re.description }}</td>
+
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}

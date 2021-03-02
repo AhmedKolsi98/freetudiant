@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+
+    <div>
+        <h1 align="center">Questionlist </h1>
+        <table border="4" align="center">
+            <tr>
+
+                <td>Sujet</td>
+                <td>Description</td>
+
+            </tr>
+            {% for q in question %}
+                <tr>
+                    <td> {{ q.sujet }}</td>
+                    <td> {{ q.description }}</td>
+
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}
