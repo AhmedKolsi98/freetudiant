@@ -4,8 +4,11 @@ namespace App\Controller;
 
 use App\Entity\Question  ;
 use App\Entity\Reclamation;
+use App\Form\FormationType;
 use App\Form\QuestionformType;
 use App\Form\RecllamationformType;
+use App\Repository\FormationRepository;
+use App\Repository\QuestionRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
@@ -55,7 +58,6 @@ class QuestionController extends AbstractController
         return $this->render('Question/addquestion.html.twig',['form'=> $form->createView()]);
 
     }
-
 
 
 }

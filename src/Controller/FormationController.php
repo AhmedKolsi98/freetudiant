@@ -83,15 +83,6 @@ class FormationController extends AbstractController
         return $this->render("formation/updateformation.html.twig",array('f'=>$form->createView()));
 
     }
-    /**
-     * @Route("/listformation", name="listformation")
-     */
-    public function listf(): Response
-    {
 
-        $repo=$this->getDoctrine()->getRepository(Formation::class);
-        $form=$repo->findAll();
 
-        return $this->render('formation/listformation.html.twig', ['formations' => $form,]);
-    }
 }

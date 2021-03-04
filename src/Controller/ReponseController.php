@@ -62,7 +62,7 @@ class ReponseController extends AbstractController
      */
     function Update(ReponseRepository $repository,$id,Request $request){
         $reponse=$repository->find($id);
-        $form=$this->createForm(RecllamationformType::class,$reponse);
+        $form=$this->createForm(ReponseformType::class,$reponse);
         $form->add('Update',SubmitType::class);
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()){
@@ -70,7 +70,7 @@ class ReponseController extends AbstractController
             $em->flush();
             return $this->redirectToRoute('affichereponse');
         }
-        return $this->render("reclamtion/updaterponse.html.twig",array('form'=>$form->createView()));
+        return $this->render("reponse/updaterponse.html.twig",array('form'=>$form->createView()));
 
     }
 

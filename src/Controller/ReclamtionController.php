@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Formation;
 use App\Entity\Reclamation;
 use App\Form\RecllamationformType;
 use App\Repository\ReclamationRepository;
@@ -54,9 +55,13 @@ class ReclamtionController extends AbstractController
         }
         return $this->render('Reclamtion/addReclamation.html.twig',['form'=> $form->createView()]);
 
-    }
+
+
+}
+
+
     /**
-     * @Route("/delreclamation/{id}", name="delreclamation")
+     * @Route("/delReclamation/{id}", name="delformation")
      */
     public function deleteReclamation(int $id): Response
     {
@@ -72,20 +77,17 @@ class ReclamtionController extends AbstractController
     }
 
     /**
-     * @Route("/updatereclamation{id}",name="update")
+     * @Route("/listReclamation", name="listReclamation")
      */
-    function Update(ReclamationRepository $repository,$id,Request $request){
-        $reclamation=$repository->find($id);
-        $form=$this->createForm(RecllamationformType::class,$reclamation);
-        $form->add('Update',SubmitType::class);
-        $form->handleRequest($request);
-        if($form->isSubmitted() && $form->isValid()){
-            $em=$this->getDoctrine()->getManager();
-            $em->flush();
-            return $this->redirectToRoute('affichereclamation');
-        }
-        return $this->render("reclamtion/updatereclamation.html.twig",array('form'=>$form->createView()));
+    public function listRec(): Response
+    {
 
+        $repo=$this->getDoctrine()->getRepository(Reclamation::class);
+        $Reclamation=$repo->findAll();
+
+        return $this->render('reclamation/listReclamation.html.twig', [
+            'Reclamation' => $Reclamation,]);
     }
 
 }
+

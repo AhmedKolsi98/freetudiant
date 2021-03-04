@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+
+    <div>
+        <h1 align="center">Reclamation list </h1>
+        <table border="4" align="center">
+            <tr>
+
+                <td>DESCRIPTION</td>
+
+
+            </tr>
+            {% for Rec in Reclamation %}
+                <tr>
+
+                    <td> {{ Rec.description_rec }}</td>
+                    <td><a class="btn btn-danger" value="delete" href="{{ path('delReclamation,{'id' : Rec.id }) }}">DELETE</a></td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+{% endblock %}
