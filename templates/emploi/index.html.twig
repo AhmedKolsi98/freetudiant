@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Emploi index{% endblock %}
+
+{% block body %}
+    <h1>Emploi index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>EmploiTitle</th>
+                <th>EmploiDesc</th>
+                <th>EmploiRenum</th>
+                <th>RenumType</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for emploi in emplois %}
+            <tr>
+                <td>{{ emploi.id }}</td>
+                <td>{{ emploi.emploiTitle }}</td>
+                <td>{{ emploi.emploiDesc }}</td>
+                <td>{{ emploi.emploiRenum }}</td>
+                <td>{{ emploi.renumType }}</td>
+                <td>
+                    <a href="{{ path('emploi_show', {'id': emploi.id}) }}">show</a>
+                    <a href="{{ path('emploi_edit', {'id': emploi.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('emploi_new') }}">Create new</a>
+{% endblock %}

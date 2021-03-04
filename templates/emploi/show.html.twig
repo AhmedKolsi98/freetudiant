@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Emploi{% endblock %}
+
+{% block body %}
+    <h1>Emploi</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ emploi.id }}</td>
+            </tr>
+            <tr>
+                <th>EmploiTitle</th>
+                <td>{{ emploi.emploiTitle }}</td>
+            </tr>
+            <tr>
+                <th>EmploiDesc</th>
+                <td>{{ emploi.emploiDesc }}</td>
+            </tr>
+            <tr>
+                <th>EmploiRenum</th>
+                <td>{{ emploi.emploiRenum }}</td>
+            </tr>
+            <tr>
+                <th>RenumType</th>
+                <td>{{ emploi.renumType }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('emploi_index') }}">back to list</a>
+
+    <a href="{{ path('emploi_edit', {'id': emploi.id}) }}">edit</a>
+
+    {{ include('emploi/_delete_form.html.twig') }}
+{% endblock %}
