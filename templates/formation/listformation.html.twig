@@ -4,7 +4,11 @@
 
     <div>
         <h1 align="center">formations list </h1>
-        <table border="4" align="center">
+        <div class="d-flex align-items-center"><input class="form-control" type="search" id="search" placeholder="Search by Date"></div>
+
+        <a class="btn btn-primary" value="tri" href="{{ path('order') }}"><i class="fa fa-sort"></i></a>
+        <table border="4" align="center" id="all">
+            <thead>
             <tr>
                 <td>TITLE</td>
                 <td>DESCRIPTION</td>
@@ -14,16 +18,42 @@
                 <td>DELETE</td>
 
             </tr>
-            {% for I in formations %}
-                <tr>
-                    <td> {{ I.title }}</td>
-                    <td> {{ I.description }}</td>
-                    <td> {{ I.date|date('Y-m-d H:i:s') }}</td>
-                    <td> {{ I.localisation }}</td>
-                    <td><a class="btn btn-warning" value="modifier" href="{{ path('updateformation',{'id' : I.id }) }}">UPDATE</a></td>
-                    <td><a class="btn btn-danger" value="supprimer" href="{{ path('delformation',{'id' : I.id }) }}">DELETE</a></td>
-                </tr>
-            {% endfor %}
+
+            </thead>
+            <tbody id="all">
+            {% include 'formation/formationajax.html.twig' %}
+            </tbody>
+            <tbody align="left" border="2" id="search">
+            </tbody>
         </table>
-    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $( document ).ready(function() {
+            var currentRequest = null;
+            $("#search").keyup(function(e){
+
+                var value = $(this).val();
+                if(currentRequest != null) {
+                    currentRequest.abort();
+                }
+
+                currentRequest = $.ajax({
+
+                    url : "{{ path('searchrdv') }}",
+                    type : 'GET',
+                    data: {
+                        'searchValue' : value
+                    },
+
+                    success : function(retour)
+                    {
+                        $('#all').html(retour);
+
+                    },
+                });
+                return false;
+            });
+        });
+    </script>
+    </script>
 {% endblock %}

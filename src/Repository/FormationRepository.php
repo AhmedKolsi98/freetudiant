@@ -47,4 +47,18 @@ class FormationRepository extends ServiceEntityRepository
         ;
     }
     */
+    public function orderbytitle(){
+        $em=$this->getEntityManager();
+        $query=$em->createQuery('select I from App\Entity\Formation I order by I.title ASC ');
+        return $query->getResult();
+    }
+    public function findrdvBydate($meet)
+    {
+        return $this->createQueryBuilder('r')
+            ->where('r.title Like :title')
+            ->setParameter('title', '%'.$meet.'%')
+            ->getQuery()
+            ->getResult()
+            ;
+    }
 }

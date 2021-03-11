@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+
+    <div>
+        <h1 align="center">formations list </h1>
+        <table border="4" align="center">
+            <tr>
+                <td>TITLE</td>
+                <td>DESCRIPTION</td>
+                <td>DATE</td>
+                <td>LOCALISATION</td>
+                <td>UPDATE</td>
+                <td>DELETE</td>
+
+            </tr>
+            {% for I in formations %}
+                <tr>
+                    <td> {{ I.title }}</td>
+                    <td> {{ I.description }}</td>
+                    <td> {{ I.date|date('Y-m-d H:i:s') }}</td>
+                    <td> {{ I.localisation }}</td>
+                    <td><a class="btn btn-warning" value="modifier" href="{{ path('updateformation',{'id' : I.id }) }}">UPDATE</a></td>
+                    <td><a class="btn btn-danger" value="supprimer" href="{{ path('delformation',{'id' : I.id }) }}">DELETE</a></td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}

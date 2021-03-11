@@ -28,4 +28,5 @@ class FormationType extends AbstractType
             'data_class' => Formation::class,
         ]);
     }
+
 }
