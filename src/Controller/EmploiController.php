@@ -10,13 +10,10 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-/**
- * @Route("/emploi")
- */
 class EmploiController extends AbstractController
 {
     /**
-     * @Route("/", name="emploi_index", methods={"GET"})
+     * @Route("/emploi", name="emploi_index", methods={"GET"})
      */
     public function index(EmploiRepository $emploiRepository): Response
     {
@@ -26,7 +23,7 @@ class EmploiController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="emploi_new", methods={"GET","POST"})
+     * @Route("/emploi/new", name="emploi_new", methods={"GET","POST"})
      */
     public function new(Request $request): Response
     {
@@ -49,7 +46,7 @@ class EmploiController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="emploi_show", methods={"GET"})
+     * @Route("/emploi/{id}", name="emploi_show", methods={"GET"})
      */
     public function show(Emploi $emploi): Response
     {
@@ -59,7 +56,7 @@ class EmploiController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="emploi_edit", methods={"GET","POST"})
+     * @Route("/emploi/{id}/edit", name="emploi_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, Emploi $emploi): Response
     {
@@ -79,7 +76,7 @@ class EmploiController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="emploi_delete", methods={"DELETE"})
+     * @Route("/emploi/{id}", name="emploi_delete", methods={"DELETE"})
      */
     public function delete(Request $request, Emploi $emploi): Response
     {

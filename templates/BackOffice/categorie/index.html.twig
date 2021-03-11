@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'baseAdmin.html.twig' %}
 
 {% block title %}Categorie{% endblock %}
 
@@ -21,8 +21,8 @@
                 <td>{{ categorie.categorieName }}</td>
                 <td>{{ categorie.categorieDesc }}</td>
                 <td>
-                    <a href="{{ path('categorie_show', {'id': categorie.id}) }}">show</a>
-                    <a href="{{ path('categorie_edit', {'id': categorie.id}) }}">edit</a>
+                    <a href="{{ path('categorie_show_back', {'id': categorie.id}) }}">show</a>
+                    <a href="{{ path('categorie_edit_back', {'id': categorie.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
@@ -33,5 +33,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('categorie_new') }}">Create new</a>
+    <a href="{{ path('categorie_new_back') }}">Create new</a>
 {% endblock %}
