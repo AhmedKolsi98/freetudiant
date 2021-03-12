@@ -70,6 +70,11 @@ class CategorieController extends AbstractController
             $entityManager->persist($categorie);
             $entityManager->flush();
 
+            $this->addFlash(
+                'info',
+                'Une nouvelle catégorie est ajouté avec succès'
+            );
+
             return $this->redirectToRoute('categorie_index_back');
         }
 

@@ -4,7 +4,12 @@
 
 {% block body %}
     <h1>Categorie index</h1>
-
+    {% for message in app.flashes('info') %}
+    <strong>Félicitation !</strong>
+        <div class="alert-message">
+            {{ message }}
+        </div>
+{% endfor %}
     <table class="table">
         <thead>
             <tr>
