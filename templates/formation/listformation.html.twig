@@ -1,10 +1,17 @@
 {% extends 'base.html.twig' %}
+{% block content %}
+    <div class="row-12">
+        <a class="btn btn-primary" value="notif" href="{{ path('notificationf') }}"><i class="fa fa-bell"></i></a>
+    </div>
+{% endblock %}
 {% block body %}
-
+    <div class="row-12">
+        <a class="btn btn-primary" value="notif" href="{{ path('notificationf') }}"><i class="fa fa-bell"></i></a>
+    </div>
 
     <div>
         <h1 align="center">formations list </h1>
-        <div class="d-flex align-items-center"><input class="form-control" type="search" id="search" placeholder="Search by Date"></div>
+        <div class="d-flex align-items-center"><input class="form-control" type="search" id="search" placeholder="Search by Type"></div>
 
         <a class="btn btn-primary" value="tri" href="{{ path('order') }}"><i class="fa fa-sort"></i></a>
         <table border="4" align="center" id="all">

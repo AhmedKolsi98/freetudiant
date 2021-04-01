@@ -99,6 +99,9 @@
     "nikic/php-parser": {
         "version": "v4.10.4"
     },
+    "php": {
+        "version": "7.3"
+    },
     "phpdocumentor/reflection-common": {
         "version": "2.2.0"
     },
@@ -107,6 +110,9 @@
     },
     "phpdocumentor/type-resolver": {
         "version": "1.4.0"
+    },
+    "phpmailer/phpmailer": {
+        "version": "v6.4.0"
     },
     "psr/cache": {
         "version": "1.0.1"
